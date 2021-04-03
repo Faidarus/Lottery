@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/numbers',methods=['GET'])
 def numbers():
     empty_list = []
-    empty_list_two = []
+    # empty_list_two = []
 
     for f in range(6): # asking for a range loop of six numbers
         a = random.randit(1,10) #returns a number between 1 and 10

@@ -1,0 +1,25 @@
+pipeline{
+        agent any
+        stages{
+            stage('Build'){
+                steps{
+                    script{
+                        image = docker.build("flask-app")
+                    }
+                }
+            }
+            stage('Tag & Push Image'){
+                steps{
+                        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
+                                image.push("${env.app_version}")
+                        }
+                    }
+                }
+            }
+            stage('Deploy App'){
+                steps{
+                    sh "docker-compose pull && docker-compose up -d"
+                }
+            }
+        }
+}
