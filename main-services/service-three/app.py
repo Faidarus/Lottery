@@ -3,15 +3,13 @@ from random import randinit
 import string 
 app = Flask(__name__)
 
-@app.route('/numbers',methods=['GET'])
-def numbers():
-   letter_amount = 8
-   uppercase_letters = "".join(random.choice(string.ascii_uppercase) for i in range(letter_amount))
-#    lowercase_letters = "".join(random.choice(string.ascii_lowercase) for i in range(letter_amount))
-
-
-return uppercase_letters
-# return lowercase_letters
+empty_letter_list=[]
+def letters():
+   letter_amount = 8 #how many leters I want to generate 
+   uppercase_letters = "".join(random.choice(string.ascii_uppercase) for i in range(letter_amount)) #genrates random uppercase letters with the range of 8 highlighted in letter amount
+   empty_letter_list.append(uppercase_letters) # will join the the range with letter amount 
+   return empty_letter_list # returns the empty_list
+print(letters())
 
 
 if __name__ == '__main__':
