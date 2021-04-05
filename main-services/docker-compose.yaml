@@ -1,13 +1,34 @@
 version: "3.8"
 services:
-  flask-app:
-    container_name: flask-app
-    image: flask-app:latest
+  service-one:
+    container_name: service-one
+    image: service-one:latest
     build: ./main-services 
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
+  service-two:
+    container_name: service-two
+    image: service-two:latest
+    build: ./main-services 
+    ports:
+    - target: 5000
+        protocol: tcp
+  service-three:
+    container_name: service-three
+    image: service-three:latest
+    build: ./main-services 
+    ports:
+    - target: 5000
+      protocol: tcp
+  service-four:
+    container_name: service-four
+    image: service-four:latest
+    build: ./main-services 
+    ports:
+    - target: 5000
+    protocol: tcp
   nginx:
     image: nginx:latest
     ports:

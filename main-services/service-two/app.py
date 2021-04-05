@@ -1,16 +1,14 @@
-from flask import Flask, Response, request, jsonify
- from random import randit
+from flask import Flask, request
+import random
+
 app = Flask(__name__)
 
 @app.route('/numbers',methods=['GET'])
-
-empty_list = []
 def numbers():
-    empty_list_two = []
-
+    empty_list = "" #modified my list into string because it will not run on lists 
     for f in range(6): # asking for a range loop of six numbers
         a = random.randint(1,10) #returns a number between 1 and 10
-        empty_list.append(a) # adding random numbers to empty list
+        empty_list += str(a) # adding random numbers to empty string list
     return empty_list
 print(numbers())
 
