@@ -13,21 +13,21 @@ services:
     image: service-two:latest
     build: ./main-services 
     ports:
-    - target: 5000
+    - target: 5002
         protocol: tcp
   service-three:
     container_name: service-three
     image: service-three:latest
     build: ./main-services 
     ports:
-    - target: 5000
+    - target: 5003
       protocol: tcp
   service-four:
     container_name: service-four
     image: service-four:latest
     build: ./main-services 
     ports:
-    - target: 5000
+    - target: 5001
     protocol: tcp
   nginx:
     image: nginx:latest
