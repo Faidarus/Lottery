@@ -3,7 +3,7 @@ services:
   service-one:
     container_name: service-one
     image: service-one:latest
-    build: ./main-services 
+    build: ./services-one 
     ports:
     - target: 5000
       published: 5000
@@ -11,31 +11,33 @@ services:
   service-two:
     container_name: service-two
     image: service-two:latest
-    build: ./main-services 
+    build: ./services-two 
     ports:
     - target: 5002
         protocol: tcp
   service-three:
     container_name: service-three
     image: service-three:latest
-    build: ./main-services 
+    build: ./ervices-three 
     ports:
     - target: 5003
       protocol: tcp
   service-four:
     container_name: service-four
     image: service-four:latest
-    build: ./main-services 
+    build: ./services-four 
     ports:
     - target: 5001
     protocol: tcp
-  nginx:
-    image: nginx:latest
-    ports:
-    - target: 80
-      published: 80
-      protocol: tcp
-    volumes:
-    - type: bind
-      source: ./nginx/nginx.conf
-      target: /etc/nginx/nginx.conf
+    environment: 
+    DATABASE_URI: ${DATABASE_URI}
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #   - target: 80
+  #     published: 80
+  #     protocol: tcp
+  #   volumes:
+  #   - type: bind
+  #     source: ./nginx/nginx.conf
+  #     target: /etc/nginx/nginx.conf

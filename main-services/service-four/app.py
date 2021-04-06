@@ -1,14 +1,23 @@
 from flask import Flask, Response, request, jsonify
-from random import randinit
+import random
 import string
 
 app = Flask(__name__)
 
-@app.route('/lottery',methods=['GET'])
-def lottery():
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root@35.189.66.154/..."
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
+db = SQLAlchemy(app)
 
-service-two = requests.get('http://localhost:5002')
-service-three = requests.get('http://localhost:5003')
+class Lottery_form(FlaskForm):
+    third_name = StringField('Name')
+    submit = SubmitField('Add Name')
+
+
+@app.route('/lottery',methods=['GET'])
+def winner():
+
+service-two = requests.get('http://localhost:5002/numbers').text
+service-three = requests.get('http://localhost:5003/letters').text
 
 
 if __name__ == '__main__':
