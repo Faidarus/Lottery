@@ -12,7 +12,6 @@ def numbers():
     return empty_list
 print(numbers())
 
-        # return response = requests.get('https://34.105.144.222:5002', data='my data')
 
 if __name__ == '__main__':
     app.run(port=5002, debug=True, host='0.0.0.0')

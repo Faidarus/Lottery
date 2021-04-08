@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/letters',methods=['GET'])
 def letters():
    empty_letter_list="" #modified my list into string because it will not run on lists 
-   letter_amount = 8 #the amount of letters you want 
+   letter_amount = 3 #the amount of letters you want 
    uppercase_letters = "".join(random.choice(string.ascii_uppercase) for i in range(letter_amount)) #will generate 8 random letters
    empty_letter_list += uppercase_letters #adding uppercase letters to emptylist
    return empty_letter_list

@@ -8,6 +8,8 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
+      environment: 
+        DATABASE_URI: ${DATABASE_URI}
   service-two:
     container_name: service-two
     image: service-two:latest
@@ -18,7 +20,7 @@ services:
   service-three:
     container_name: service-three
     image: service-three:latest
-    build: ./ervices-three 
+    build: ./services-three 
     ports:
     - target: 5003
       protocol: tcp
@@ -29,8 +31,7 @@ services:
     ports:
     - target: 5001
     protocol: tcp
-    environment: 
-    DATABASE_URI: ${DATABASE_URI}
+
   # nginx:
   #   image: nginx:latest
   #   ports:

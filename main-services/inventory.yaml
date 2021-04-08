@@ -1,14 +1,14 @@
 jenkins:
   hosts:
     lottery_master:
-swarm_managers:
+swarm_masters:
   hosts:
     swarm-master:
     swarm-master-two:
-workers:
+swarm-workers:
   hosts:
-    worker:
-    second-worker:
+    swarm-worker:
+    swarm-worker-two:
 nginx:
   hosts:
     nginx:
