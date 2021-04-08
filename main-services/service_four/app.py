@@ -3,7 +3,6 @@ import random
 import string
 
 app = Flask(__name__)
-"mysql+pymysql://root:root@35.189.66.154/lottery_data"
 @app.route('/lottery',methods=['POST'])
 def winner():
     prize = 250 #predefined variable
