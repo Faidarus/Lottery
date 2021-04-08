@@ -1,13 +1,10 @@
 from flask import Flask, Response, request, jsonify
-from flask_sqlalchemy import SQLAlchemy 
-from app import db 
-from os import getenv
 import random
 import string
 
 app = Flask(__name__)
-
-@app.route('/lottery',methods=['GET'])
+"mysql+pymysql://root:root@35.189.66.154/lottery_data"
+@app.route('/lottery',methods=['POST'])
 def winner():
     prize = 250 #predefined variable
     won = 0

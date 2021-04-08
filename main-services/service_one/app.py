@@ -1,9 +1,13 @@
-from flask import Flask, Response, request, jsonify
-
+from flask import Flask, Response, request, jsonify, render_template
+from flask_sqlalchemy import SQLAlchemy 
+import requests
+import random
+import string
+from os import getenv
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = getenv
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv("DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 db = SQLAlchemy(app)
 
@@ -14,9 +18,9 @@ class Lottery(db.Model):
 
 @app.route('/',methods=['GET', 'POST'])
 def home():
-    service_two = requests.get('http://localhost:5002/numbers').text
-    service_three = requests.get('http://localhost:5003/letters').text
-    service_four = requests.post('http://localhost:5001/winner',json={"service_numbers":service_two,"service_letters":service_three}).text
+    service_two = requests.get('http://service_two:5002/numbers').text
+    service_three = requests.get('http://service_three:5003/letters').text
+    service_four = requests.post('http://service_four:5001/lottery', json={"service_numbers":service_two,"service_letters":service_three}).json()
     new_winner = Lottery(combined_account_string = service_four["combined"],  message_string = service_four["message"])
     db.session.add(new_winner)
     db.session.commit()
