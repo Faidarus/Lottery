@@ -9,3 +9,4 @@ pytest-cov
 flask-testing
 mock
 requests
+requests_mock
