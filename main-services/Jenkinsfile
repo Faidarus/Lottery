@@ -1,0 +1,48 @@
+pipeline{
+        agent any
+        environment{
+            DATABASE_URI = credentials("DATABASE_URI")
+        }
+        stages{
+            // stage('Test'){
+            //     steps{
+            //         dir("main-services"){
+            //         sh "bash pytest.sh"  
+            //         }
+
+                //     }
+                // }
+            stage('Build'){
+                steps{
+                    dir("main-services"){
+                    sh "docker-compose build" 
+                    }
+
+                    }
+                }
+            stage('Tag & Push Image'){
+                steps{
+                    dir("main-services"){
+                    sh 'docker-compose push'
+                    }
+ 
+                    }
+                }
+            stage('Swarm'){
+                steps{
+                    dir("main-services/ansible"){
+                    sh "/home/jenkins/.local/bin/ansible-playbook -i inventory.yaml playbook.yaml"  
+                    }
+            
+                }
+            }
+            stage('Deploy App'){
+                steps{
+                    dir("main-services"){
+                    sh "bash deploy.sh"
+                    }
+
+                }
+            }
+        }
+}

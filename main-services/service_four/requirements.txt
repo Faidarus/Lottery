@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+SQLAlchemy<1.4
+pymysql
+Jinja2
+Werkzeug 
+pytest
+pytest-cov
+flask-testing
+mock
+requests
+requests_mock
