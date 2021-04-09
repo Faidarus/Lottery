@@ -2,7 +2,7 @@ version: "3.8"
 services:
   service-one:
     container_name: service-one
-    image: lottery/service-one:latest
+    image: faidarus/service-one:latest
     build: ./service_one 
     ports:
     - target: 5000
@@ -12,21 +12,21 @@ services:
       DATABASE_URI: ${DATABASE_URI}
   service-two:
     container_name: service_two
-    image: lottery/service_two:latest
+    image: faidarus/service_two:latest
     build: ./service_two 
     ports:
     - target: 5002
       protocol: tcp
   service-three:
     container_name: service_three
-    image: lottery/service_three:latest
+    image: faidarus/service_three:latest
     build: ./service_three 
     ports:
     - target: 5003
       protocol: tcp
   service-four:
     container_name: service_four
-    image: lottery/service_four:latest
+    image: faidarus/service_four:latest
     build: ./service_four 
     ports:
     - target: 5001
