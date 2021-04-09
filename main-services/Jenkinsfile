@@ -10,8 +10,8 @@ pipeline{
             //         sh "bash pytest.sh"  
             //         }
 
-                    }
-                }
+                //     }
+                // }
             stage('Build'){
                 steps{
                     dir("main-services"){
