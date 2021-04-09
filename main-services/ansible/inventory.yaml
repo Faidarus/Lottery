@@ -10,12 +10,12 @@ all:
         swarm-worker:
         swarm-worker-two:
   vars:
-    ansible_user: faidarus
-    ansible_ssh_private_key_file: "/home/faidarus/.ssh/ansible_id_rsa"
+    # ansible_user: faidarus
+    # ansible_ssh_private_key_file: "/home/faidarus/.ssh/ansible_id_rsa"
+    # ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ansible_user: jenkins
+    ansible_ssh_private_key_file: "/home/jenkins/.ssh/ansible_id_rsa"
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     docker_users: 
       - username: jenkins
       - username: faidarus
-    ansible_user: jenkins
-    ansible_ssh_private_key_file: "/home/jenkins/.ssh/ansible_id_rsa"
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
