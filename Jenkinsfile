@@ -19,7 +19,6 @@ pipeline{
                        sh 'docker-compose push'
                     }
                 }
-            }
             stage('Swarm'){
                 steps{
                     sh "ansible-playbook -i inventory.yaml playbook.yaml"
