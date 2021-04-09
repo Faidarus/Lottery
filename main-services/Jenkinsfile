@@ -39,7 +39,7 @@ pipeline{
             stage('Deploy App'){
                 steps{
                     dir("main-services"){
-                    sh "docker stack deploy --compose-file docker-compose.yaml main-services"
+                    sh "bash jenkins/deploy_stack.sh"
                     }
 
                 }
