@@ -39,7 +39,7 @@ pipeline{
             stage('Deploy App'){
                 steps{
                     dir("main-services"){
-                    sh "bash jenkins/deploy_stack.sh"
+                    sh "bash jenkins/deploy.sh"
                     }
 
                 }
