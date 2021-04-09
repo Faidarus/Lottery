@@ -17,6 +17,7 @@ class Lottery(db.Model):
     message_string= db.Column(db.String(100), nullable=False)
 
 @app.route('/home',methods=['GET', 'POST'])
+@app.route('/',methods=['GET', 'POST'])
 def home():
     service_two = requests.get('http://service_two:5002/numbers').text
     service_three = requests.get('http://service_three:5003/letters').text
