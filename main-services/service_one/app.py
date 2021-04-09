@@ -16,7 +16,7 @@ class Lottery(db.Model):
     combined_account_string = db.Column(db.String(50), nullable=False)
     message_string= db.Column(db.String(100), nullable=False)
 
-@app.route('/',methods=['GET', 'POST'])
+@app.route('/home',methods=['GET', 'POST'])
 def home():
     service_two = requests.get('http://service_two:5002/numbers').text
     service_three = requests.get('http://service_three:5003/letters').text
