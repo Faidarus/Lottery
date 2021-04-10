@@ -19,8 +19,8 @@ class Lottery(db.Model):
 @app.route('/home',methods=['GET', 'POST'])
 @app.route('/',methods=['GET', 'POST'])
 def home():
-    service_two = requests.get('http://service_two:5002/numbers').text
     service_three = requests.get('http://service_three:5003/letters').text
+    service_two = requests.get('http://service_two:5002/numbers').text
     service_four = requests.post('http://service_four:5001/lottery', json={"service_numbers":service_two,"service_letters":service_three}).json()
     new_winner = Lottery(combined_account_string = service_four["combined"],  message_string = service_four["message"])
     db.session.add(new_winner)
