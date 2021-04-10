@@ -16,8 +16,8 @@ class TestLetters(TestBase):
 
     def test_letters(self):         
         with patch('random.choice') as a:
-            a.return_value = 'A'
+            a.return_value = 'a'
             response = self.client.get(url_for('letters'))
-            self.assertIn(b'AAA', response.data)
+            self.assertIn(b'aaaa', response.data)
         
   

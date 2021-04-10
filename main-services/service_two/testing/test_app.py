@@ -16,8 +16,8 @@ class TestNumbers(TestBase):
 
     def test_letters(self):         
         with patch('random.randint') as a:
-            a.return_value = '3'
+            a.return_value = '2'
             response = self.client.get(url_for('numbers'))
-            self.assertIn(b'333333', response.data)
+            self.assertIn(b'22222222', response.data)
 
 

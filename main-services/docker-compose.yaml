@@ -31,4 +31,3 @@ services:
     ports:
     - target: 5001
       protocol: tcp
-

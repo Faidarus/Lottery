@@ -6,7 +6,7 @@ pip3 install -r requirements.txt
 pip3 install pytest
 pip3 install pytest-cov
 
-pytest service_one --cov --cov-report=term-missing 
-pytest service_two --cov --cov-report=term-missing 
-pytest service_three --cov --cov-report=term-missing 
-pytest service_four --cov --cov-report=term-missing 
+python3 -m pytest service_one --cov=service_one --cov-report=term-missing 
+python3 -m pytest service_two --cov=service_two --cov-report=term-missing 
+python3 -m pytest service_three --cov=service_three --cov-report=term-missing 
+python3 -m pytest service_four --cov=service_four --cov-report=term-missing 
