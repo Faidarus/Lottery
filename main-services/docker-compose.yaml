@@ -15,7 +15,7 @@ services:
     image: faidarus/service_two:latest
     build: ./service_two 
     ports:
-    - target: 5005
+    - target: 5002
       protocol: tcp 
   service-three:
     container_name: service_three
