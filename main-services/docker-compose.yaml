@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   service-one:
-    container_name: service-one
-    image: faidarus/service-one:latest
+    container_name: service_one
+    image: faidarus/service_one:latest
     build: ./service_one 
     ports:
     - target: 5000
