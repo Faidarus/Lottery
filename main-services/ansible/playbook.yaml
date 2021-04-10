@@ -8,6 +8,6 @@
   - docker 
   - swarm-workers
 
-- hosts: nginx
-  roles: 
-  - nginx
+# - hosts: nginx
+#   roles: 
+#   - nginx
