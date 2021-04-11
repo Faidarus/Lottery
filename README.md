@@ -89,6 +89,8 @@
 
 ## ** Risk Assesment: **
 
+![riskassesmentone](risk-assessment-one.PNG)
+![riskassesmenttwo](risk-assessment-two.PNG)
 
 ## **Contributors/Reference:**
 
