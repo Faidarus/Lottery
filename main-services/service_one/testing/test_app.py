@@ -29,19 +29,19 @@ import requests_mock
 #         db.drop_all()
 
 class TestBase(TestCase):
-    def create_app(self):
+    def create_app(self):  # creating a test base 
         return app
 
 class TestHome(TestBase):
     def test_home(self):
-        with requests_mock.mock() as m:
-            m.get("http://service_two:5002/numbers").text = ('3')
-            m.get("http://service_two:5003/letters").text = ("A")
+        with requests_mock.mock() as m: # doing a mock of my app.py and recreating it for the test
+            m.get("http://service_two:5002/numbers").text = ('3') # tested that the data/information went through
+            m.get("http://service_two:5003/letters").text = ("A") # tested that the data/information went through
             response = self.client.get(url_for('home'))
 
     def test_view(self):
-        response = self.client.get(url_for('home'))
-        self.assertIsNotNone(response.status_code, 200)
+        response = self.client.get(url_for('home')) # enusring that my url works 
+        self.assertIsNotNone(response.status_code, 200) # ensuring that I have a 200 status , which will show that my browser 
         self.assertIsNotNone(response.data)
     
     # def test_home_combined(self):
