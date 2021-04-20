@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  service-one:
+  service_one:
     container_name: service_one
     image: faidarus/service_one:latest
     build: ./service_one 
@@ -10,21 +10,21 @@ services:
       protocol: tcp
     environment: 
       DATABASE_URI: ${DATABASE_URI}
-  service-two:
+  service_two:
     container_name: service_two
     image: faidarus/service_two:latest
     build: ./service_two 
     ports:
     - target: 5002 
       protocol: tcp 
-  service-three:
+  service_three:
     container_name: service_three
     image: faidarus/service_three:latest
     build: ./service_three 
     ports:
     - target: 5003
       protocol: tcp
-  service-four:
+  service_four:
     container_name: service_four
     image: faidarus/service_four:latest
     build: ./service_four 
